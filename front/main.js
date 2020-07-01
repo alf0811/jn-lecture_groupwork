@@ -16,6 +16,8 @@ function paperClassToContainerItem(paper){
 function setPapers(){
     var container = document.getElementById('container');
 
+    papers = papers.reverse();
+
     papers.forEach(paper => {
         console.log(paper);
         document.getElementById('container').innerHTML += paperClassToContainerItem(paper);
@@ -30,7 +32,7 @@ function fetchAllPaper(){
   .then(json => {
     for (var i = 0; i < json.length; i++) {
         papers.push(new Paper(json[i].name, json[i].url, json[i].outline, json[i].student_name));
-      }
+    }
     console.log(papers);
       setPapers();
   })
