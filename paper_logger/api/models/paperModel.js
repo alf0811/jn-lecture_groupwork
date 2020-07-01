@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var PaperSchema = new Schema({
   name: {
     type: String,
-    required: "Enter the title of the paper"
+    default: "paper title"
   },
   url: {
     type: String,
@@ -16,7 +16,7 @@ var PaperSchema = new Schema({
   },
   student_name:{
     type: String,
-    required: "Enter the student name"
+    default: ""
   },
   Created_date: {
     type: Date,

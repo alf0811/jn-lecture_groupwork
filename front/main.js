@@ -9,12 +9,14 @@ function Paper(name, url, outline, student) {
 }
 
 function paperClassToContainerItem(paper){
-    var html = '<div class="item"><p class="name">'+ paper.name + '</p><p class="url">'+ paper.url + '</p><p class="outline">'+ paper.outline + '</p><p class="student_name">'+ paper.student + '</p></div>';
+    var html = '<div class="item"><p class="name">'+ paper.name + '</p><p class="url">'+ '<a href="' + paper.url + '">' + paper.url + '</a>' + '</p><p class="outline">'+ "概要: " + paper.outline + '</p><p class="student_name">' + "読んだ人: " + paper.student + '</p></div>';
     return html;
 }
 
 function setPapers(){
     var container = document.getElementById('container');
+
+    papers = papers.reverse();
 
     papers.forEach(paper => {
         console.log(paper);
@@ -30,7 +32,7 @@ function fetchAllPaper(){
   .then(json => {
     for (var i = 0; i < json.length; i++) {
         papers.push(new Paper(json[i].name, json[i].url, json[i].outline, json[i].student_name));
-      }
+    }
     console.log(papers);
       setPapers();
   })

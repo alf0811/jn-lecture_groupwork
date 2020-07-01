@@ -5,8 +5,17 @@ var express = require("express"),
   Paper = require("./api/models/paperModel"), // 作成したModelの読み込み
   bodyParser = require("body-parser");
 
+const connectOption = {
+    useUnifiedTopology: true,
+}
+
+const options = {
+	useUnifiedTopology : true,
+	useNewUrlParser : true
+}
+
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/paperdb");
+mongoose.connect("mongodb://localhost/paperdb", options);
 
 // CORSを許可する
 app.use(function(req, res, next) {
