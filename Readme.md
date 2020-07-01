@@ -39,6 +39,7 @@ request body
 }
 ```
 
+#### Papers_get_all
 localhost:3000/papers GET
 response
 ```
