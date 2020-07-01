@@ -1,7 +1,6 @@
 var mongoose = require("mongoose"),
   Paper = mongoose.model("Papers");
 
-// 全てのpaperを取得する。
 exports.all_papers = function(req, res) {
   Paper.find({}, function(err, paper) {
     if (err) res.send(err);
@@ -9,7 +8,6 @@ exports.all_papers = function(req, res) {
   });
 };
 
-// 新しいタスクを作成する。
 exports.create_paper = function(req, res) {
   var new_paper = new Paper(req.body);
   new_paper.save(function(err, task) {
@@ -18,7 +16,6 @@ exports.create_paper = function(req, res) {
   });
 };
 
-// 特定のタスクを取得する。
 exports.load_paper = function(req, res) {
   Paper.findById(req.params.paperId, function(err, paper) {
     if (err) res.send(err);
@@ -26,7 +23,6 @@ exports.load_paper = function(req, res) {
   });
 };
 
-// 特定のタスクを更新する。
 exports.update_paper = function(req, res) {
   Paper.findOneAndUpdate(
     { _id: req.params.paperId },
@@ -39,7 +35,6 @@ exports.update_paper = function(req, res) {
   );
 };
 
-// 特定のタスクを削除する。
 exports.delete_paper = function(req, res) {
   Paper.remove(
     {

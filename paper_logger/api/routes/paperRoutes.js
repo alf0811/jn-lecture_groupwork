@@ -5,7 +5,7 @@ module.exports = function(app) {
     .get(paperList.all_papers)
     .post(paperList.create_paper);
 
-  app.route('/papers/:taskId')
+  app.route('/papers/:paperId')
     .get(paperList.load_paper)
     .put(paperList.update_paper)
     .delete(paperList.delete_paper);
